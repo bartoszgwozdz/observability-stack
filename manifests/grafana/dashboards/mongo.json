@@ -1,0 +1,6 @@
+{
+  "title": "MongoDB Dashboard",
+  "panels": [
+    { "type": "graph", "title": "Connections", "targets": [{ "expr": "mongodb_connections" }] }
+  ]
+}

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-exporter
+spec:
+  selector:
+    matchLabels:
+      app: mongodb-exporter
+  template:
+    metadata:
+      labels:
+        app: mongodb-exporter
+    spec:
+      containers:
+      - name: exporter
+        image: bitnami/mongodb-exporter:latest
+        args:
+          - --mongodb.uri=mongodb://monitorUser:password@mongo:27017
+        ports:
+        - containerPort: 9216

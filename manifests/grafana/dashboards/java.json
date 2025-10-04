@@ -1,0 +1,6 @@
+{
+  "title": "Java App Dashboard",
+  "panels": [
+    { "type": "graph", "title": "JVM Heap Used", "targets": [{ "expr": "jvm_memory_used_bytes{area='heap'}" }] }
+  ]
+}
