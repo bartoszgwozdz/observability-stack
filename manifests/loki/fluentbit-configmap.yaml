@@ -88,7 +88,7 @@ data:
         Host            loki
         Port            3100
         Labels          job=fluentbit, namespace=$kubernetes['namespace_name'], app=$kubernetes['labels']['app'], level=$level
-        Label_Keys      testId, correlationId
+        Label_Keys      $testId, $correlationId
         Remove_Keys     parsed_level, parsed_testId, parsed_correlationId, kubernetes
         Line_Format     json
         # Retry w razie niedostępności Loki
