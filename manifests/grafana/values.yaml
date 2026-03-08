@@ -1,2 +1,27 @@
-adminUser: admin
-adminPassword: admin
+# Wartości dla kube-prometheus-stack — klucz `grafana` wymagany przez ten chart
+grafana:
+  adminUser: admin
+  adminPassword: admin
+
+  grafana.ini:
+    analytics:
+      check_for_updates: false
+
+  # -------------------------------------------------------
+  # Datasources provisioning — ładowane automatycznie przy starcie Grafany
+  # -------------------------------------------------------
+  additionalDataSources:
+    # Loki — do przeglądania logów aplikacji
+    - name: Loki
+      type: loki
+      url: http://loki.observability.svc.cluster.local:3100
+      isDefault: false
+      access: proxy
+      editable: true
+      jsonData:
+        # Korelacja logów z metrykami po polu correlationId
+        derivedFields:
+          - name: correlationId
+            matcherRegex: '"correlationId":"([^"]+)"'
+            url: ""
+            datasourceUid: ""
