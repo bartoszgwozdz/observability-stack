@@ -6,6 +6,9 @@ grafana:
   grafana.ini:
     analytics:
       check_for_updates: false
+    server:
+      root_url: http://213.199.63.237/grafana
+      serve_from_sub_path: true
 
   # -------------------------------------------------------
   # Datasources provisioning — ładowane automatycznie przy starcie Grafany

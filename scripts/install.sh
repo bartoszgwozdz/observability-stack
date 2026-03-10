@@ -22,6 +22,9 @@ kubectl apply -f manifests/mongodb-exporter/ -n observability
 kubectl apply -f manifests/servicemonitors/ -n observability
 kubectl apply -f manifests/alerts/ -n observability
 
+# Grafana IngressRoute — dostęp przez http://<IP>/grafana
+kubectl apply -f manifests/grafana/ingress.yaml -n observability
+
 # Fluent Bit — zbieranie logów i przesyłanie do Loki
 # Kolejność ma znaczenie: najpierw RBAC, potem ConfigMap, na końcu DaemonSet
 kubectl apply -f manifests/loki/fluentbit-rbac.yaml
